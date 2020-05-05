@@ -80,7 +80,7 @@ io.on("connection", (socket) => {
 
 		if (user) {
 			const { username, room } = user
-			
+
 			io.to(room).emit(
 				"message",
 				generateMessage({
@@ -97,4 +97,6 @@ io.on("connection", (socket) => {
 	})
 })
 
-server.listen(3000, () => console.log("Server up"))
+const PORT = process.env.PORT || 3000
+
+server.listen(PORT, () => console.log("Server up"))
